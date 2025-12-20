@@ -40,6 +40,12 @@ Las variables incluyen información como:
 
 Este dataset es adecuado para la estimación del CLTV, ya que permite construir variables de comportamiento histórico como recencia, frecuencia y valor monetario, además de variables temporales.
 
+Es importante destacar que el dataset se encuentra a nivel de línea de producto.
+Cada registro corresponde a un producto específico incluido dentro de una factura.
+Cuando una factura contiene múltiples productos, cada uno de ellos se representa como un registro independiente, con su respectiva cantidad, precio unitario y referencia a la factura asociada.
+
+En consecuencia, múltiples registros pueden pertenecer a una misma factura, y todas las facturas están asociadas a un cliente.
+
 ---
 
 ## 5. Metodología
