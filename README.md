@@ -50,7 +50,7 @@ En consecuencia, múltiples registros pueden pertenecer a una misma factura, y t
 
 ## 5. Metodología
 
-El desarrollo del proyecto se organizó en etapas, siguiendo un flujo estándar de proyectos de Machine Learning.
+El desarrollo del proyecto se organizó en etapas, siguiendo la metodología CRISP-DM, adaptada al contexto de predicción del Customer Lifetime Value (CLTV).
 
 ### 5.1 Exploración inicial de los datos
 
