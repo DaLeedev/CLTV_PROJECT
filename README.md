@@ -121,39 +121,46 @@ Se diseñó y entrenó una Red Neuronal Artificial (MLP) utilizando TensorFlow/K
 
 ### 5.6 Evaluación del modelo
 
-El desempeño del modelo se evaluó utilizando métricas de regresión adecuadas para la estimación de valores continuos, tales como:
+El modelo se validó utilizando una partición del 20% de los datos (Test Set) no vistos durante el entrenamiento. Se utilizaron métricas robustas para problemas de regresión:
 
-- Error absoluto medio (MAE)
-- Raíz del error cuadrático medio (RMSE)
+- MAE (Error Absoluto Medio): Para interpretar el error promedio en unidades monetarias (log-scale).
 
-Además, se analizó el impacto del CLTV predicho en la clasificación de clientes.
+- Loss (MSE): Para evaluar la penalización de errores grandes durante el entrenamiento.
+
+- Validación de Curvas: Análisis visual de las curvas de aprendizaje (Loss vs. Val_Loss) para descartar problemas de convergencia.
 
 ---
 
 ## 6. Resultados
 
-El modelo desarrollado permite estimar el CLTV de los clientes a 6 meses, facilitando:
+El pipeline desarrollado logró generar un modelo (.keras) capaz de generalizar el comportamiento de compra futuro. El sistema permite:
 
-- La identificación de clientes de alto valor esperado
-- La mejora de la clasificación ABC de clientes
-- Un soporte cuantitativo para la toma de decisiones de inversión en marketing
+- Predecir el CLTV a 6 meses transformando la salida logarítmica a valor monetario real (expm1).
+
+- Identificar clientes con alto potencial de crecimiento.
+
+- Proveer una base cuantitativa para la asignación de presupuestos de marketing.
 
 ---
 
 ## 7. Conclusiones
 
-Los resultados muestran que la incorporación de features temporales y un modelo basado en MLP permite capturar de forma efectiva el comportamiento futuro de los clientes.
-El CLTV predicho aporta valor para la segmentación y la optimización del presupuesto, contribuyendo a decisiones más informadas y estratégicas.
+La implementación de Ventanas Deslizantes combinada con una arquitectura de Deep Learning demostró ser superior a enfoques estáticos tradicionales. El preprocesamiento riguroso (Logaritmos y Escalado) fue determinante para el rendimiento de la red neuronal. El proyecto finaliza con un pipeline de inferencia listo para despliegue, capaz de procesar nuevos clientes mediante artefactos serializados (.pkl) en diferentes etapas del flujo de trabajo.
 
----
+El resultado arrojado por el modelo fue del 0.62 de R² en el conjunto de prueba, lo que indica una capacidad moderada para explicar la variabilidad del CLTV a 6 meses. Aunque el modelo muestra un desempeño aceptable, existen oportunidades para mejorar su precisión y robustez.
+
+La principal causa de este desempeño moderadoo (R² = 0.62) radica en la falta de mas registros de clientes y transacciones en el dataset original. A pesar de que al final se utilizaron mas de 400k registros no fueron suficientes para capturar toda la complejidad del comportamiento del cliente en un rago de 6 meses. Contar con un dataset más amplio y diverso permitiría al modelo aprender patrones más complejos, mejorar su capacidad de generalizacion y obtener asi mejores resultados.
+
 
 ## 8. Estructura del repositorio
 
 - `data/`
-  Datos utilizados en el proyecto
+  - raw/: Datos originales.
+  - processed/: Datos procesados y listos para modelado.
+  - intermedios/: Datos en etapas intermedias de procesamiento.
 
 - `notebooks/`
-  Notebooks de exploración, análisis y modelado
+  Notebooks de exporacion inicia, limpieza de datos, exploración de los datos, análisis y modelado
 
 - `src/`
   Funciones y utilidades auxiliares
