@@ -159,6 +159,9 @@ La principal causa de este desempeño moderadoo (R² = 0.62) radica en la falta 
   - processed/: Datos procesados y listos para modelado.
   - intermedios/: Datos en etapas intermedias de procesamiento.
 
+-`models/`
+  Modelos entrenados y serializados.
+
 - `notebooks/`
   Notebooks de exporacion inicia, limpieza de datos, exploración de los datos, análisis y modelado
 
