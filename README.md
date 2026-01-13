@@ -25,7 +25,7 @@ Construir un modelo predictivo basado en redes neuronales (MLP) que permita esti
 
 Se utilizó el dataset **Online Retail**, disponible en Kaggle.
 
-El conjunto de datos contiene transacciones de una tienda de comercio electrónico del Reino Unido, correspondientes al período 2009–2010. Cada registro representa una línea de producto dentro de una transacción.
+El conjunto de datos contiene transacciones de una tienda de comercio electrónico del Reino Unido, correspondientes al período 2009–2010.
 
 Las variables incluyen información como:
 
@@ -36,7 +36,6 @@ Las variables incluyen información como:
 - Factura
 - Precio unitario
 - País del cliente
-- Precio
 
 Este dataset es adecuado para la estimación del CLTV, ya que permite construir variables de comportamiento histórico como recencia, frecuencia y valor monetario, además de variables temporales.
 
