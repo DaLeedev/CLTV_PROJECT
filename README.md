@@ -162,9 +162,6 @@ La principal causa de este desempeño moderadoo (R² = 0.62) radica en la falta 
 - `notebooks/`
   Notebooks de exporacion inicia, limpieza de datos, exploración de los datos, análisis y modelado
 
-- `src/`
-  Funciones y utilidades auxiliares
-
 - `README.md`
   Documentación del proyecto
 
