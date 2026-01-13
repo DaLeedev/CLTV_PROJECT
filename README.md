@@ -89,11 +89,17 @@ El EDA incluyó:
 
 ### 5.4 Feature Engineering
 
-Se construyeron variables derivadas a partir del historial transaccional, combinando métricas clásicas y variables temporales. Entre ellas:
+Para capturar la dinámica temporal del comportamiento del cliente, se implementó una estrategia de Ventanas Deslizantes (Rolling Windows). Esto permitió multiplicar los ejemplos de entrenamiento generando cortes de 3 meses de observación para predecir los siguientes 6 meses.
 
-- Métricas de recencia, frecuencia y valor monetario (RFM)
-- Agregaciones temporales por ventanas de tiempo
-- Variables que capturan la evolución del comportamiento del cliente
+Las transformaciones clave incluyeron:
+
+- Métricas RFM+V: Cálculo de Recencia, Frecuencia, Valor Monetario y Variedad de Productos (Product Variety).
+
+- Log-Transformation: Aplicación de np.log1p a las variables numéricas para reducir el sesgo (skewness) de los datos y facilitar la convergencia de la red neuronal.
+
+- Estacionalidad: Codificación del mes de inicio (month_start) mediante One-Hot Encoding para capturar patrones estacionales.
+
+- Escalado: Estandarización de datos (StandardScaler) ajustado exclusivamente al set de entrenamiento para evitar fuga de datos (Data Leakage).
 
 Estas features permitieron representar de forma más rica la dinámica de compra de cada cliente.
 
@@ -101,10 +107,15 @@ Estas features permitieron representar de forma más rica la dinámica de compra
 
 ### 5.5 Modelado
 
-Se entrenó un modelo de **Multi-Layer Perceptron (MLP)** para la predicción del CLTV a 6 meses.
-La elección del MLP se debe a su capacidad para modelar relaciones no lineales y capturar interacciones complejas entre variables temporales y de comportamiento.
+Se diseñó y entrenó una Red Neuronal Artificial (MLP) utilizando TensorFlow/Keras con la siguiente configuración:
 
-El entrenamiento del modelo se realizó utilizando un conjunto de datos preparado específicamente para el horizonte de predicción definido.
+- Arquitectura: Estructura de capas densas (64, 32, 16 neuronas) con función de activación ReLU.
+
+- Regularización: Implementación de capas de Dropout (0.2) para prevenir el sobreajuste (overfitting).
+
+- Optimización: Uso del optimizador Adam y función de pérdida MSE (Mean Squared Error).
+
+- Early Stopping: Mecanismo de parada temprana para detener el entrenamiento cuando la pérdida en validación dejaba de mejorar, asegurando el mejor modelo posible (restore_best_weights).
 
 ---
 
