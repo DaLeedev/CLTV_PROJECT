@@ -167,6 +167,25 @@ La principal causa de este desempeño moderadoo (R² = 0.62) radica en la falta 
 - `README.md`
   Documentación del proyecto
 
+---
+
+## Implementación local
+
+Este proyecto de ciencia de datos trasciende el análisis en Notebooks. El modelo entrenado y los artefactos de preprocesamiento (.pkl y .keras) han sido integrados en un ecosistema de software completo para su consumo en entornos reales:
+
+* **Backend (Servidor de Inferencia):** API desarrollada con **FastAPI** que gestiona la lógica de predicción asíncrona.  
+   [Repositorio del Backend](https://github.com/DaLeedev/Deploy-CLTV-Backend)
+
+* **Frontend (Interfaz de Usuario):** Aplicación web construida con **React y TypeScript** para la consulta interactiva de predicciones.  
+   [Repositorio del Frontend](https://github.com/DaLeedev/Deploy-CLTV-Frontend)
+
+---
+
+## 🔗 Contacto y Enlaces
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tu-perfil)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/DaLeedev)
+
 ## 🔗 Links
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
